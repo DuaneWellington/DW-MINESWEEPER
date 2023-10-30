@@ -1,47 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Poiret+One&display=swap" rel="stylesheet">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" src="app.js" href="main.css"/>
     <title>MINESWEEPER!!</title>
   </head>
   <body>
-    <h1>MINESWEEPER!!</h1>
-    <nav class="menu">menu</nav>
+    <nav class="menu">MINESWEEPER</nav>
     <!-- <nav2 class="menu2">menu2</nav2>  ICEBOX - secondary menu for adjusting game settings - ICEBOX -->
 
-    <section class="statsBox">
+    <section class="optionsBox">
       <div id="easy">easy</div>
-      <div id="smiley" href &#128578>&#128578</div>
-      <div id="timer">timer</div>
+      <div id="sound">sound</div>
+    </section>
+    <section class="statsBox">
+        <div id="minesLeft">010</div>
+        <div id="smiley" href &#128578>&#128578</div>
+        <div id="timer">000</div>
     </section>
     <section class="emojis">
         <!-- <ul id="hard"></ul> - meant for future upgrade to add preset difficulity levels as well as setting custom minefield grid size and # of mines
         <ul id="expert"></ul>
         <ul id="custom"></ul> -->
-            
-        <div class="winner" href &#128526></div>
-        <div class="loser" href &#129327></div>
-
     </section>
       <div class="stats"></div>
-      <section class="minefield">
+      <section class="board">
+        <div id="minefield"></div>
         <div class="mines">
-          <ul id="mine" href &#128163>&#128163</ul>
-        </div>
-        <div class="flag" href &#128681>&#128681</div>
-      <div class="board">board</div>
-      <div class="border">border</div>
-      <div class="tiles">tiles</div>
-    </section>
-    </section>
+            <div id="mine" href &#128163>&#128163</div>
+          <div class="flag" href &#128681>&#128681</div>
+      </section>
+      
+        
+      
+      
+    
+
       <section class="buttons">
-      <div class="rMouseBtn"></div>
-      <div class="lMouseBtn"></div>
+      <div class="exit"></div>
+      <div class="minimize"></div>
+      <div class="easyBtn"></div>
+      <div class="emojiRestartBtn"></div>
     </section>
     </section>
   </body>
+  <div class="winner" href &#128526></div>
+  <div class="loser" href &#129327></div>
+
 </html> 
 
 
