@@ -3,55 +3,38 @@
 }
 
 .menu {
-  background-color: gray;
+  background-color:rgb(62, 60, 60);
   display: flex;
   flex-wrap: wrap;
   align-content: center;
   justify-content: center;
-  border: 2px solid white
+  border: 1px solid light gray
 }
 
 
 .statsBox {
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
+    position: relative;
     justify-content: center;
-    align-content: center;
     background-color: grey;
-    border: 2px solid white;
-    border-top: 6px solid white;
-    border-right: 6px solid light grey;
-    border-left: 6px solid white;
-    border-bottom: 6px solid light grey;
+    border: 1px solid light gray;
 }
-.minefield {
+.board {
     display: flex;
     flex-wrap: wrap;
-    background: solid gray;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: gray;
+}
+
+.tiles {
     border: 2px solid white;
     border-top: 6px solid white;
     border-right: 6px solid light grey;
     border-left: 6px solid white;
     border-bottom: 6px solid light grey;
-   
-    margin: auto;
 }
-
-div.board {
-    padding: 10px;
-    border-top: 6px solid white;
-    border-left: 6px solid white;
-}
-
-.border {
-    border-top: 6px solid white;
-    border-right: 6px solid light grey;
-    border-left: 6px solid white;
-    border-bottom: 6px solid light grey;
-}
-
-
 
 button {
     padding: 0;
@@ -74,9 +57,7 @@ button {
   justify-content: center;
 }
 
-.tiles {
-
-} */
+ */
 
 
 
