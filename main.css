@@ -1,1 +1,42 @@
+* {
+  box-sizing: border-box;
+}
 
+
+.menu {
+  background-color: gray;
+  max-width: 30px;
+  max-height: 30px;
+  display: flex;
+}
+
+{
+    padding: 10px;
+    border-top: 7px solid white;
+    border-left: 7px solid white;
+}
+
+button {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+}
+/* {
+  background-color: gray;
+  display: flex;
+  width: 400px;
+  height: 400px;
+  flex-wrap: wrap;
+  align-items: center;
+} */
+
+.stats {
+  background-color: gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tiles {
+
+}

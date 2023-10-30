@@ -49,3 +49,45 @@ GAMEPLAY
 - gmaeplay continues until all mines are flagged && all possible tiles are uncovered safely; || if a hidden mine tile is left-clicked.
 - gameOver: WINNER = expose the board showing all mine locations; countdown stops; console.log("You WIN!!"); emoji changes to thumbs up or sunglasses smiley, etc; pop-up box showing stats (timer, etc), "PLAY AGAIN?" button to reset game
 - gameOver: LOSER = expose the board showing all mine locations (highlighting the tripped mine); countdown stops; console.log("You LOSE!!"); emoji changes to thumbs down or mind-blown smiley, etc; pop-up box showing stats (timer, etc), "PLAY AGAIN?" button to reset game
+
+PSEUDOCODE FOR GAME MECHANICS
+
+1. define list of constants (menu items, board items, r & l mouse buttons, etc)
+
+2. define list of variables
+
+3.  a.build the game board (overall board, menu box, stats display box, emoji)
+    b. build the minefield (flex grid)
+    c. define the buttons
+    d. define how all the tiles are hidden at outset of game load.
+
+4. define how the mines are randomly placed on the field (random placement based on grid rows and columns, making sure no two mines get placed on the same coordinates)
+    a. Math.random to generate mine locations based on field grid coordinates
+    b. A while or if statement to make sure a mine cannot be placed where another mine already exists
+
+5. define how the number clues around mines work
+    - seems like it could be similar to how the flood event would work. checks adjacent tiles to see how many mines are within the 8 surrounding grid locations and logs the number in the middle tile
+    - different colors for numbers. ie, 1 is blue, 2 is red, 3 is green, etc up to 8.
+
+6. code toggle flagging operator for right mouse button (right mouse button only works on minefield)
+    - contextmenu for right mouse button, tied to an if statement to determine if right click is occurring on minefield -> if so, then proceed with toggle function, otherwise no effect.
+
+7. define left mouse controls on minefield and in menu
+    - typical addEventListener for left mouse button
+    - works in minefield and everywhere else
+    - only doesn't work when a tile is flagged.
+    - determine how the left mouse click uncovers the tile and exposed what's hidden underneath
+
+8. determine how the flood event will operate
+    - checks all 8 tiles around it to see if they are INSIDE THE MINEFIELD.
+    - checks the remaining tiles (could still be all 8) to see if they are empty.
+    - if any of those tiles are empty, they will also check 8 tiles around them to see if on the board and empty (as long as those tiles have not ALREADY been checked)
+    - chain reaction flood event will stop when all checks come back having found something in an adjacent minefield tile.
+
+9. determine how the game will start and be timed.
+    a. game loads ready to begin (9x9 grid, 10 mines randomly placed on the board)
+    b. timer starts at first accepted left mouse click
+
+10. determine how game will end
+    a. winner! -> emoji changes to sunglasses, console.log "You WIN!!", timer stops, flags switch to cleared minefield with correclty cleared mines showing check, console.log "Play Again?" as a button at bottom?
+    b. loser! -> emoji changes to exploded head, console.log "You LOSE!!", timer stops, flags switch to cleared minefield with mines showing, mines that were correctly cleared showing 'x' through them, and the mine you triggered showing detonated with a red background, console.log "Play Again?" as a button at bottom?
