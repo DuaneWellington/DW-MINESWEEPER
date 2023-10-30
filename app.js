@@ -4,10 +4,10 @@ console.log("js:loaded");
 const menu = "";
 const menu2 = "";
 const stats = "";
-const board = "";
+const board = document.querySelector('.board');
 const tiles = "";
 const timer = 0;
-const difficulty = 1;
+const difficulty = ['easy', 'hard', 'expert', 'custom'];
 const rBtn = "";
 const lBtn = "";
 const emoji = "";
@@ -15,7 +15,12 @@ const mines = 10;
 const flag = "";
 const gameStart = "";
 const gameOver = "";
+const minefield = document.querySelector('.minefield')
 
+
+//console.log(difficulty.indexOf('easy'))
+difficultyEasy = difficulty.indexOf('easy')
+console.log(board)
 
 
 // default board layout, ready to start game when lMouseClick on game board is initiated
@@ -41,3 +46,4 @@ const gameOver = "";
 // gameOver
 // display stats within pop-up box
 // option to restart/reset or exit
+
