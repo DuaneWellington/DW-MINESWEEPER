@@ -1,49 +1,57 @@
 console.log("js:loaded");
 
-// establish a few variables for the game upfront
-const menu = "";
-const menu2 = "";
-const stats = "";
-const board = document.querySelector('.board');
-const tiles = "";
-const timer = 0;
-const difficulty = ['easy', 'hard', 'expert', 'custom'];
-const rBtn = "";
-const lBtn = "";
-const emoji = "";
-const mines = 10;
-const flag = "";
-const gameStart = "";
-const gameOver = "";
-const minefield = document.querySelector('.minefield')
+// looking at a board generator option...
+const board = [];
+const rows = 9;
+const columns = 9;
 
+const minesCount = 5
+const minesLocation = [];
+const tilesClicked = 0;
+const flagEnabled = false;
+const gameOver = false;
 
-//console.log(difficulty.indexOf('easy'))
-difficultyEasy = difficulty.indexOf('easy')
-console.log(board)
-
-
-// default board layout, ready to start game when lMouseClick on game board is initiated
-
-// options menu to change difficulty from Easy (default) to Hard, Expert, and custom (within ranges for rows, columns and # of mines)
-
-// gameStart (first lMouseClick on game board begins game)
-
-// display boxes showing # of mines on board, timer, and emoji
-
-// timer (starts when game starts, counts 1000 ms, displays in display box in red digital with black background)
-
-// gamePlay (method of playing game, 'flood' events, determining game end condition [win or lose])
-
-// mouseOver (changes board tile color when hovering over tile)
-
-// rMouseClick (general menu access, remove tiles on board, select options)
-
-// lMouseClick (toggle flag on board, no use elsewhere)
+window.onload = function() {
+   document.getElementById('minesCount').innerText = minesCount; 
 
 
 
-// gameOver
-// display stats within pop-up box
-// option to restart/reset or exit
+// auto-generate the board
+for (let r = 0; r < rows; r++) {
+    let row = [];
+    for (let c = 0; c < columns; c++) {
+        let tile = document.createElement('div');
+        tile.id = r.toString() + '-' + c.toString();
+        tile.addEventListener('click', lClickTile);
+        tile.addEventListener('contextmenu', rClickTile => {
+            rClickTile.preventDefault();
+        });
+        document.getElementById('board').append(tile);
+        row.push(tile);
+    }
+    board.push(row);
+}
+console.log(board);
+} 
 
+// function rClickTile() {
+//     let tile = this;
+//     if (flagEnabled === false) {
+//         if (tile.innerText == "") {
+//             tile.innerText = '&#128681'
+//         } else if (flagEnabled === true) {
+//             if (tile.innertext = '&#128681'); {
+//                 tile.innerText = "";
+//     }
+//     }
+// }
+// }
+
+
+// function lClickTile() {
+//     let tile = this;
+//     if (flagEnabled === true) {
+// return
+//     } else (
+//   )
+// }

@@ -1,57 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Poiret+One&display=swap" rel="stylesheet">
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" src="app.js" href="main.css"/>
-    <title>MINESWEEPER!!</title>
+    <title>MINESWEEPER</title>
+    <link rel="stylesheet" href="main.css" />
+    <script src="app.js"></script>
   </head>
+
   <body>
-    <nav class="menu">MINESWEEPER</nav>
-    <!-- <nav2 class="menu2">menu2</nav2>  ICEBOX - secondary menu for adjusting game settings - ICEBOX -->
-
-    <section class="optionsBox">
-      <div id="easy">easy</div>
-      <div id="sound">sound</div>
-    </section>
-    <section class="statsBox">
-        <div id="minesLeft">010</div>
-        <div id="smiley" href &#128578>&#128578</div>
-        <div id="timer">000</div>
-    </section>
-    <section class="emojis">
-        <!-- <ul id="hard"></ul> - meant for future upgrade to add preset difficulity levels as well as setting custom minefield grid size and # of mines
-        <ul id="expert"></ul>
-        <ul id="custom"></ul> -->
-    </section>
-      <div class="stats"></div>
-      <section class="board">
-        <div id="minefield"></div>
-        <div class="mines">
-            <div id="mine" href &#128163>&#128163</div>
-          <div class="flag" href &#128681>&#128681</div>
-      </section>
-      
-        
-      
-      
-    
-
-      <section class="buttons">
-      <div class="exit"></div>
-      <div class="minimize"></div>
-      <div class="easyBtn"></div>
-      <div class="emojiRestartBtn"></div>
-    </section>
-    </section>
+    <h1>Mines <span id="minesCount">0</span></h1>
+    <div id="board"></div>
+    <br>
+    <button id="flag-button">&#128681</button>
   </body>
-  <div class="winner" href &#128526></div>
-  <div class="loser" href &#129327></div>
-
-</html> 
-
-
+</html>
 
