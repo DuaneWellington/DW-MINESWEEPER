@@ -1,0 +1,236 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+#menu {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  width: 324px;
+  background-color: rgb(1, 1, 156);
+  color: rgb(227, 227, 227);
+  font-size: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  border: 5px solid rgb(1, 1, 156);
+  padding: 0.9rem, 0.3rem;
+  margin: auto;
+}
+
+#statsBox {
+  width: 324px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(187, 187, 187);
+  margin: auto;
+  border: 5px solid darkgray;
+}
+
+.minesLeft {
+  font-weight: bold;
+  padding-top: 1px;
+  font-family: "Orbitron", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin: auto;
+  margin-left: 5px;
+  width: 80px;
+  text-align: center;
+  font-size: 35px;
+  color: red;
+  background-color: black;
+  display: flex;
+  border-top: 3px solid rgb(93, 93, 93);
+  border-right: 3px solid rgb(145, 144, 144);
+  border-left: 3px solid rgb(93, 93, 93);
+  border-bottom: 3px solid rgb(145, 144, 144);
+}
+
+#smiley {
+  background-color: rgb(187, 187, 187);
+  width: 45px;
+  height: 45px;
+  margin-right: 47.5px;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  border-bottom: 3px solid rgb(93, 93, 93);
+  border-left: 3px solid rgb(145, 144, 144);
+  border-right: 3px solid rgb(93, 93, 93);
+  border-top: 3px solid rgb(145, 144, 144);
+}
+
+#timer {
+  font-size: 35px;
+  font-weight: bold;
+  padding-top: 1px;
+  font-family: "Orbitron", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-right: 5px;
+  width: 80px;
+  text-align: center;
+  color: red;
+  background-color: black;
+  display: flex;
+  border-top: 3px solid rgb(93, 93, 93);
+  border-right: 3px solid rgb(145, 144, 144);
+  border-left: 3px solid rgb(93, 93, 93);
+  border-bottom: 3px solid rgb(145, 144, 144);
+}
+
+#board {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(187, 187, 187);
+  width: 324px;
+  height: 324px;
+  margin: auto;
+  border: 5px solid darkgrey;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+#board div {
+  width: 34px;
+  height: 34px;
+  border: 1px solid whitesmoke;
+  margin: 0;
+
+  /* text */
+  font-size: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#mine {
+display: flex;
+margin: auto;
+background-color: darkgray;
+
+}
+
+.tile-clicked {
+  background-color: darkgray;
+}
+
+.clr1 {
+  color: blue;
+}
+
+.clr2 {
+  color: green;
+}
+
+.clr3 {
+  color: red;
+}
+
+.clr4 {
+  color: navy;
+}
+
+.clr5 {
+  color: brown;
+}
+
+.clr6 {
+  color: teal;
+}
+
+.clr7 {
+  color: black;
+}
+
+.clr8 {
+  color: purple;
+}
+
+/* #flag-button {
+    width: 100px;
+    height: 50 px;
+    font-size: 30px;
+    background-color: light gray;
+    border: none;
+  } */
+
+/* 
+  
+  
+  #easy {
+    margin-left: 5px;
+    width: 80px;
+    border: 1px solid blue;
+    background-color: grey;
+    display: flex;
+    border-bottom: 3px solid rgb(93, 93, 93);
+    border-left: 3px solid rgb(145, 144, 144);
+    border-right: 3px solid rgb(93, 93, 93);
+    border-top: 3px solid rgb(145, 144, 144);
+  }
+  
+  #sound {
+    margin-right: 5px;
+    width: 80px;
+    border: 1px solid blue;
+    background-color: gray;
+    border-bottom: 3px solid rgb(93, 93, 93);
+    border-left: 3px solid rgb(145, 144, 144);
+    border-right: 3px solid rgb(93, 93, 93);
+    border-top: 3px solid rgb(145, 144, 144);
+  }
+  
+  
+  .optionsBox {
+    width: auto;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    background-color: rgb(187, 187, 187);
+    border: 1px solid blue;
+    padding: 0.3rem;
+  }
+  
+  
+  
+  
+  
+  .cleared-tile {
+      background-color: darkgray;
+  }
+  
+  
+  
+  
+  /* button {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+  } */
+
+/* background-color: gray;
+    display: flex;
+    width: 400px;
+    height: 400px;
+    flex-wrap: wrap;
+    align-items: center; */
+
+/* .stats {
+    background-color: gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+   */

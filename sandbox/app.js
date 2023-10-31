@@ -28,18 +28,22 @@ window.onload = function () {
   }
   console.log(board);
 
-  // add Event Listener to clear tiles using left mouse button
-  document.addEventListener('click', lButton)
-    function lButton() {
-        let tile = this;
-        if (flagEnabled === true) {
-    return
-        } else if (flagEnabled === false) {
-            document.getElementById('board[r][c]').append(this);
-            console.log(this)
-    
-        }}
+  
+  // place mines on the board
 
+
+  
+  // add Event Listener to clear tiles using left mouse button
+  document.addEventListener("click", lButton);
+  function lButton() {
+    let tile = this;
+    if (flagEnabled === true) {
+      return;
+    } else if (flagEnabled === false) {
+      document.getElementById("board[r][c]").append(this);
+      
+    } console.log(this);
+  }
 };
 
 // randomly place mines on the board
@@ -72,12 +76,13 @@ function getMineCoordinates(board, x) {
   return mineCoordinates;
   console.log(mineCoordinates)
 }
-
 const mineField = document.getElementById("minesOnBoard");
 for (let i = 1; i <= minesCount; i++) {
   let place = document.createElement("div");
   place.className = "place";
   mineField.appendChild(place);
+
+  
   /* add eventListener for left-click to clear tiles and potentially activate flood event
     - Start timer only when left click on a tile.
     - Also add contextmenu with a preventDefault(); on the board for right click to toggle flag on/off. 
@@ -89,6 +94,7 @@ for (let i = 1; i <= minesCount; i++) {
   mineField.appendChild(child);
 }
 
+
 // At game start (left click on tile) begin timer
 
 let timer = setInterval(function () {
@@ -97,7 +103,6 @@ let timer = setInterval(function () {
   if (displayNumber > 999) {
     console.log(timer);
     clearInterval(timer);
-    
   }
 }, 1000);
 
@@ -147,4 +152,3 @@ function checkMine(r, c) {
 //     }
 // }
 // }
-

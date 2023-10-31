@@ -76,7 +76,7 @@ PSEUDOCODE FOR GAME MECHANICS
     - typical addEventListener for left mouse button
     - works in minefield and everywhere else
     - only doesn't work when a tile is flagged.
-    - determine how the left mouse click uncovers the tile and exposed what's hidden underneath
+    - determine how the left mouse click uncovers the tile and exposes what's hidden underneath
 
 8. determine how the flood event will operate
     - checks all 8 tiles around it to see if they are INSIDE THE MINEFIELD.
