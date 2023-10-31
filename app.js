@@ -29,18 +29,24 @@ console.log(board);
 }
 
 // randomly place mines on the board
-
 const field = document.getElementById('minesCount');
 for (let i=1;i <= minesCount; i++) {
     let place = document.createElement('div');
     place.className = 'place';
     field.appendChild(place);
-
+    /* add eventListener for left-click to clear tiles and potentially activate flood event
+    - Start timer only when left click on a tile.
+    - Also add contextmenu with a preventDefault(); on the board for right click to toggle flag on/off. 
+    - When flag on == true for a tile, left click won't work on that tile. Should be a simple "if flag on then return, else perform function" 
+    
+    */
     const child = document.createElement('div');
     child.className = 'child';
     field.appendChild(child);
 }
+// cover mines?
 
+// 
 // searching for mines nearby, and adding numbers to tiles
 function checkMine(r, c) {
     if (c < 0 || c >= columns || r , 0 || r >= rows) {
@@ -64,6 +70,9 @@ function checkMine(r, c) {
         board[r][c].classList.add('clr' + minesFound.toString());
     }
 }
+
+
+/* gameOver function (Smiley turns to exploded head; timer stops; console.log("You WIN!!") with minefield fully exposed showing all mines, or ("You LOSE!!" with minefield fully exposed and the triggered mine tile in red, etc) and option to restart!! */
 
         // let rTile = document.createElement('div');
 

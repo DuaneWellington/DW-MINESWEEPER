@@ -1,15 +1,12 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  text-align: center;
 }
 
-
-/* * {
-  box-sizing: border-box;
-} */
-
 #menu {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
   width: 324px;
   background-color: rgb(1, 1, 156);
   color: rgb(227, 227, 227);
@@ -23,70 +20,70 @@ body {
   margin: auto;
 }
 
-#optionsBox {
-    width: 324px;
-    height: auto;
-    display: flex;
-    justify-content: space-between;
-    background-color: rgb(187, 187, 187);
-    margin: auto;
-    border: 5px solid darkgray;
-  }
-  
-.minesLeft {
-    font-weight: bold;
-    padding-top: 1px;
-    font-family: "Orbitron", sans-serif;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    margin: auto;
-    margin-left: 5px;
-    width: 80px;
-    text-align: center;
-    font-size: 35px;
-    color: red;
-    background-color: black;
-    display: flex;
-    border-top: 3px solid rgb(93, 93, 93);
-    border-right: 3px solid rgb(145, 144, 144);
-    border-left: 3px solid rgb(93, 93, 93);
-    border-bottom: 3px solid rgb(145, 144, 144);
-  }
+#statsBox {
+  width: 324px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(187, 187, 187);
+  margin: auto;
+  border: 5px solid darkgray;
+}
 
-  #smiley {
-    font-size: 30px;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    border-bottom: 3px solid rgb(93, 93, 93);
-    border-left: 3px solid rgb(145, 144, 144);
-    border-right: 3px solid rgb(93, 93, 93);
-    border-top: 3px solid rgb(145, 144, 144);
-    width: 40px;
-    height: 40px;
-    margin: auto;
-  }
-  
-  #timer {
-    font-size: 35px;
-    font-weight: bold;
-    padding-top: 1px;
-    font-family: "Orbitron", sans-serif;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    margin-right: 5px;
-    width: 80px;
-    text-align: center;
-    color: red;
-    background-color: black;
-    display: flex;
-    border-top: 3px solid rgb(93, 93, 93);
-    border-right: 3px solid rgb(145, 144, 144);
-    border-left: 3px solid rgb(93, 93, 93);
-    border-bottom: 3px solid rgb(145, 144, 144);
-  }
+.minesLeft {
+  font-weight: bold;
+  padding-top: 1px;
+  font-family: "Orbitron", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin: auto;
+  margin-left: 5px;
+  width: 80px;
+  text-align: center;
+  font-size: 35px;
+  color: red;
+  background-color: black;
+  display: flex;
+  border-top: 3px solid rgb(93, 93, 93);
+  border-right: 3px solid rgb(145, 144, 144);
+  border-left: 3px solid rgb(93, 93, 93);
+  border-bottom: 3px solid rgb(145, 144, 144);
+}
+
+#smiley {
+  width: 40px;
+  height: 40px;
+  margin-right: 47.5px;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  border-bottom: 3px solid rgb(93, 93, 93);
+  border-left: 3px solid rgb(145, 144, 144);
+  border-right: 3px solid rgb(93, 93, 93);
+  border-top: 3px solid rgb(145, 144, 144);
+}
+
+#timer {
+  font-size: 35px;
+  font-weight: bold;
+  padding-top: 1px;
+  font-family: "Orbitron", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-right: 5px;
+  width: 80px;
+  text-align: center;
+  color: red;
+  background-color: black;
+  display: flex;
+  border-top: 3px solid rgb(93, 93, 93);
+  border-right: 3px solid rgb(145, 144, 144);
+  border-left: 3px solid rgb(93, 93, 93);
+  border-bottom: 3px solid rgb(145, 144, 144);
+}
 
 #board {
   display: flex;
@@ -99,15 +96,17 @@ body {
   height: 324px;
   margin: auto;
   border: 5px solid darkgrey;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
 #board div {
-    width: 34px;
+  width: 34px;
   height: 34px;
   border: 1px solid whitesmoke;
   margin: 0;
 
-   /* text */
+  /* text */
   font-size: 22px;
   display: flex;
   justify-content: center;
@@ -115,51 +114,48 @@ body {
 }
 
 .tile-clicked {
-    background-color: darkgray;
+  background-color: darkgray;
 }
 
-
-
 .clr1 {
-    color: blue;
+  color: blue;
 }
 
 .clr2 {
-    color: green;
+  color: green;
 }
 
 .clr3 {
-    color: red;
+  color: red;
 }
 
 .clr4 {
-    color: navy;
+  color: navy;
 }
 
 .clr5 {
-    color: brown;
+  color: brown;
 }
 
 .clr6 {
-    color: teal;
+  color: teal;
 }
 
 .clr7 {
-    color: black;
+  color: black;
 }
 
 .clr8 {
-    color: purple;
+  color: purple;
 }
 
 #flag-button {
-    width: 100px;
-    height: 50 px;
-    font-size: 30px;
-    background-color: light gray;
-    border: none;
+  width: 100px;
+  height: 50 px;
+  font-size: 30px;
+  background-color: light gray;
+  border: none;
 }
-
 
 /* 
 
@@ -188,7 +184,7 @@ body {
 }
 
 
-.statsBox {
+.optionsBox {
   width: auto;
   display: flex;
   position: relative;
