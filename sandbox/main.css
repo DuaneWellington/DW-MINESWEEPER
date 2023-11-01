@@ -2,9 +2,9 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   text-align: center;
-  margin-top: 30%;
   justify-content: center;
   align-content: center;
+  margin-top: 15%;
 }
 
 #menu {
@@ -64,9 +64,9 @@ body {
   justify-content: center;
   align-content: center;
   border-bottom: 3px solid rgb(93, 93, 93);
-  border-left: 3px solid rgb(145, 144, 144);
+  border-left: 3px solid rgb(205, 203, 203);
   border-right: 3px solid rgb(93, 93, 93);
-  border-top: 3px solid rgb(145, 144, 144);
+  border-top: 3px solid rgb(205, 203, 203);
 }
 
 #timer {
@@ -105,10 +105,20 @@ body {
 }
 
 #board div {
-  width: 34px;
-  height: 34px;
-  border: 1px solid whitesmoke;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
   margin: 0;
+  border-bottom: 3px solid rgb(93, 93, 93);
+  border-right: 3px solid rgb(93, 93, 93);
+  border-top: 3px solid rgb(205, 203, 203);
+  border-left: 3px solid rgb(205, 203, 203);
+
+
 
   /* text */
   font-size: 22px;
@@ -124,9 +134,6 @@ background-color: darkgray;
 
 }
 
-.tile-clicked {
-  background-color: darkgray;
-}
 
 .clr1 {
   color: blue;
@@ -206,7 +213,19 @@ background-color: darkgray;
   }
   
   
-  
+  .tile-clicked {
+  background-color: darkgray;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid whitesmoke;
+  margin: 0;
+}
+
   
   
   .cleared-tile {

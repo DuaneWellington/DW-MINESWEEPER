@@ -12,8 +12,27 @@ const flagEnabled = false;
 const gameOver = false;
 
 window.onload = function () {
+  startGame();
+};
+
+function setMines() {
+  minesLocation.push("2-2");
+  minesLocation.push("2-3");
+  minesLocation.push("5-6");
+  minesLocation.push("3-4");
+  minesLocation.push("1-1");
+}
+
+// function clearTile() {
+//   const oldDivProp = document.getElementById(e.target);
+//   oldDivProp.setAttribute("tileClicked");
+//   oldDivProp.addEventListener("click", clearTile);
+// }
+
+function startGame() {
   //-- ICEBOX -> get minesDisplay to read as 3 digits at all times{
   document.getElementById("minesOnBoard").textContent = "00" + minesCount;
+  setMines();
 
   // auto-generate the board
   for (let r = 0; r < rows; r++) {
@@ -29,18 +48,63 @@ window.onload = function () {
   console.log(board);
 
   // add Event Listener to clear tiles using left mouse button
-  document.addEventListener('click', lButton)
-    function lButton() {
-        let tile = this;
-        if (flagEnabled === true) {
-    return
-        } else if (flagEnabled === false) {
-            document.getElementById('board[r][c]').append(this);
-            console.log(this)
-    
-        }}
+  document.addEventListener("click", lButton);
+  function lButton(e) {
+    let tile = this;
+    if (flagEnabled == true) {
+      return;
+    } else if (flagEnabled == false) {
+      // document.getElementById('board[r][c]').append(this);
+      startTimer();
+      
+    }
+    console.log(e.target);
+  }
+  
+  let timer;
+  let seconds = 0;
 
-};
+  function updateTimer() {
+    seconds++;
+    document.getElementById("timer").textContent = seconds
+      .toString()
+      .padStart(3, "0");
+  }
+  function startTimer() {
+    timer = setInterval(updateTimer, 1000);
+  }
+
+  function stopTimer() {
+    clearInterval(timer);
+  }
+
+  function resetTimer() {
+    stopTimer();
+    seconds = 0;
+    document.getElementById("timer").textContent = "000";
+  }
+
+  
+  // add eventlistener to start timer and begin game
+
+  // document.getElementById('board').addEventListener('mousedown')
+
+  // function (e) {
+  //   if (e.target.lButton === 0) {
+  //     resetTimer();
+  //     startTimer();
+  //     startGame();
+  //   }
+  // }
+
+  // e.target.textContent = clickedDiv;
+  // console.log(clickedDiv);
+  // document.getElementById(e.target);
+  // window.getComputerStyle(e.target);
+}
+
+
+
 
 // randomly place mines on the board
 
@@ -62,7 +126,7 @@ function getMineCoordinates(board, x) {
   for (let row = 0; row < rows; row++) {
     for (let column = 0; column < columns; column++) {
       if (board[row][column] === -1) {
-        mineCoordinates.push({row, column});
+        mineCoordinates.push({ row, column });
         if (mineCoordinates.length === x) {
           return mineCoordinates;
         }
@@ -70,14 +134,14 @@ function getMineCoordinates(board, x) {
     }
   }
   return mineCoordinates;
-  console.log(mineCoordinates)
+  console.log(mineCoordinates);
 }
 
 const mineField = document.getElementById("minesOnBoard");
 for (let i = 1; i <= minesCount; i++) {
   let place = document.createElement("div");
   place.className = "place";
-  mineField.appendChild(place);
+  // mineField.appendChild(place);
   /* add eventListener for left-click to clear tiles and potentially activate flood event
     - Start timer only when left click on a tile.
     - Also add contextmenu with a preventDefault(); on the board for right click to toggle flag on/off. 
@@ -86,20 +150,20 @@ for (let i = 1; i <= minesCount; i++) {
     */
   const child = document.createElement("div");
   child.className = "child";
-  mineField.appendChild(child);
+  // mineField.appendChild(child);
 }
 
 // At game start (left click on tile) begin timer
 
-let timer = setInterval(function () {
-  displayNumber--;
-  display.textContent = displayNumber;
-  if (displayNumber > 999) {
-    console.log(timer);
-    clearInterval(timer);
-    
-  }
-}, 1000);
+// let timer = setInterval(function () {
+//   displayNumber---;
+//   display.textContent = displayNumber---;
+//   if (displayNumber---  > 999) {
+//     console.log(timer);
+//     clearInterval(timer);
+
+//   }
+// }, 1000);
 
 // cover mines?
 
@@ -147,4 +211,3 @@ function checkMine(r, c) {
 //     }
 // }
 // }
-
