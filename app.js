@@ -95,10 +95,10 @@ function startGame() {
   if (e.target.classList == '.flag') {
     return;
   } else if (e.target.classList == '.mine') {
-    
+    youLose();
   }    
    else {e.target.classList = '.tile-clicked';
-    
+  
   }
     // document.addEventListener("contextmenu", rButton);
     // oncontextmenu = (rButton)
