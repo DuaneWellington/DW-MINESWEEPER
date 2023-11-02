@@ -5,7 +5,7 @@ const board = [];
 const rows = 9;
 const columns = 9;
 
-const minesCount = 5;
+let minesCount = 5;
 const minesLocation = [];
 const tilesClicked = 0;
 let flagEnabled = false;
@@ -14,6 +14,8 @@ const gameOver = false;
 window.onload = function () {
   startGame();
 };
+
+
 
 function setMines() {
   minesLocation.push("2-2");
@@ -92,6 +94,8 @@ function startGame() {
   }
   console.log(board);
 
+  // click event for Smiley/Flag Toggle
+
   function smileyToggle() {
     if (flagEnabled == false) {
       document.getElementById("smiley").style.backgroundColor = "white";
@@ -105,7 +109,7 @@ function startGame() {
     // console.log(smileyToggle);
   }
 
-  //place mines on the board
+  // place mines on the board
 
   minesLocation.forEach((mineLocation) => {
     let cell = document.getElementById(mineLocation);
@@ -115,17 +119,19 @@ function startGame() {
     }
   });
 
+  // click event for board
 
   function lButton(e) {
     console.log(e.target);
     let tile = this;
     if (flagEnabled) {
-      if (tile.innerText == "") {
-        tile.innerText = "🚩";
-      }
-      if (tile.innerText == "🚩") {
-        tile.innerText = "";
-      }
+      function flagged() {
+        if (e.target.innerText == '') {
+        e.target.innerText = '🚩';
+        minesCount = (minesCount -=1)
+      } else (e.target.innerText = '')
+      };
+      flagged();
 
       // document.getElementById('div[r][c]').append(lTileClick);
       // startTimer();
@@ -172,48 +178,48 @@ function startGame() {
   // // quick solution to tile check issue?
 
   // recursion flood event
-  // function checkMine(r, c) {
-  //   if ((c < 0 || c >= columns || r, 0 || r >= rows)) {
-  //     return;
-  //   }
-  //   if (board[r][c].classList.contains("tile-clicked")) {
-  //     return;
-  //   }
-  //   board[r][c].classList.add(".tile-clicked");
+  function checkMine(r, c) {
+    if ((c < 0 || c >= columns || r, 0 || r >= rows)) {
+      return;
+    }
+    if (board[r][c].classList.contains("tile-clicked")) {
+      return;
+    }
+    board[r][c].classList.add(".tile-clicked");
 
-  //   let minesFound = 0;
+    let minesFound = 0;
 
-  //   minesFound += checkTile(r - 1, c - 1); // top left
-  //   minesFound += checkTile(r - 1, c); // top
-  //   minesFound += checkTile(r - 1, c + 1); // top right
+    minesFound += checkTile(r - 1, c - 1); // top left
+    minesFound += checkTile(r - 1, c); // top
+    minesFound += checkTile(r - 1, c + 1); // top right
 
-  //   minesFound += checkTile(r, c - 1); // left
-  //   minesFound += checkTile(r, c + 1); // right
+    minesFound += checkTile(r, c - 1); // left
+    minesFound += checkTile(r, c + 1); // right
 
-  //   minesFound += checkTile(r + 1, c - 1); // bottom left
-  //   minesFound += checkTile(r + 1, c); //bottom
-  //   minesFound += checkTile(r + 1, c + 1); // bottom right
+    minesFound += checkTile(r + 1, c - 1); // bottom left
+    minesFound += checkTile(r + 1, c); //bottom
+    minesFound += checkTile(r + 1, c + 1); // bottom right
 
-  //   if (minesFound > 0) {
-  //     board[r][c].innerText = minesFound;
-  //     board[r][c].classList.add("clr" + minesFound.toString());
-  //   } else {
-  //     checkMine(r - 1, c - 1); // top left
-  //     checkMine(r - 1, c); // top
-  //     checkMine(r - 1, c + 1); // top right
+    if (minesFound > 0) {
+      board[r][c].innerText = minesFound;
+      board[r][c].classList.add("clr" + minesFound.toString());
+    } else {
+      checkMine(r - 1, c - 1); // top left
+      checkMine(r - 1, c); // top
+      checkMine(r - 1, c + 1); // top right
 
-  //     checkMine(r, c - 1); // left
-  //     checkMine(r, c + 1); // right
+      checkMine(r, c - 1); // left
+      checkMine(r, c + 1); // right
 
-  //     checkMine(r + 1, c - 1); // bottom left
-  //     checkMine(r + 1, c); // bottom
-  //     checkMine(r + 1, c - +1); // bottom right
-  //   }
+      checkMine(r + 1, c - 1); // bottom left
+      checkMine(r + 1, c); // bottom
+      checkMine(r + 1, c - +1); // bottom right
+    }
 
-  //   if (tilesClicked == rows * columns - minesCount) {
-  //     document.getElementById("minesOnBoard").innerText = "000";
-  //   }
-  // }
+    if (tilesClicked == rows * columns - minesCount) {
+      document.getElementById("minesOnBoard").innerText = "000";
+    }
+  }
   // }
   // document.addEventListener("contextmenu", rButton);
   // oncontextmenu = (rButton)
