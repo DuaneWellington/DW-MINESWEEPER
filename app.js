@@ -1,6 +1,6 @@
 console.log("js:loaded");
 
-// looking at a board generator option...
+// board constants
 const board = [];
 const rows = 9;
 const columns = 9;
@@ -21,7 +21,15 @@ function setMines() {
   minesLocation.push("5-6");
   minesLocation.push("3-4");
   minesLocation.push("1-1");
+  console.log(minesLocation);
+  // const minesArrayEl = document.elementFromPoint
+  //   minesLocation.forEach(minesArray => {
+  //     document.getElementById('board').append(tile);
+  //   });
 }
+
+//   }
+// }
 
 // function clearTile() {
 //   const oldDivProp = document.getElementById(e.target);
@@ -33,6 +41,19 @@ function startGame() {
   //-- ICEBOX -> get minesDisplay to read as 3 digits at all times{
   document.getElementById("minesOnBoard").textContent = "00" + minesCount;
   setMines();
+
+  function youLose() {
+    if (e.target.classList == '.mine') {
+      console.log('Game Over! You LOSE!!')
+      function youLose() {
+        gameOver = true
+        revealMines();
+        restart();
+      }
+    }
+    gameOver = true
+    console.log('Game Over!')
+  }
 
   // auto-generate the board
   for (let r = 0; r < rows; r++) {
@@ -47,44 +68,76 @@ function startGame() {
   }
   console.log(board);
 
+  // place mines on the board
+
+  minesLocation.forEach(mineLocation => {
+    const cell = document.getElementById(mineLocation);
+    if (cell) {
+      cell.innerText = '';
+      cell.classList.add('.mine')
+    }
+  })
+
   // add Event Listener to clear tiles using left mouse button
   document.addEventListener("click", lButton);
   function lButton(e) {
-    let tile = this;
+    let lTileClick = e.target;
     if (flagEnabled == true) {
       return;
     } else if (flagEnabled == false) {
-      // document.getElementById('board[r][c]').append(this);
-      startTimer();
-      
+      // document.getElementById('div[r][c]').append(e.target);
+      // startTimer();
     }
     console.log(e.target);
-  }
-  
-  let timer;
-  let seconds = 0;
 
-  function updateTimer() {
-    seconds++;
-    document.getElementById("timer").textContent = seconds
-      .toString()
-      .padStart(3, "0");
-  }
-  function startTimer() {
-    timer = setInterval(updateTimer, 1000);
-  }
+    // quick solution to tile check issue?
 
-  function stopTimer() {
-    clearInterval(timer);
+  if (e.target.classList == '.flag') {
+    return;
+  } else if (e.target.classList == '.mine') {
+    
+  }    
+   else {e.target.classList = '.tile-clicked';
+    
   }
+    // document.addEventListener("contextmenu", rButton);
+    // oncontextmenu = (rButton)
+    // function rButton(evt){
+    //   preventDefault();
+    //   let rTileClick = evt.target;
+    //   if (flagEnabled == true) {
+    //     return;
+    //   } else if (flagEnabled == false) {
 
-  function resetTimer() {
-    stopTimer();
-    seconds = 0;
-    document.getElementById("timer").textContent = "000";
+    // document.getElementById('div[r][c]').append(e.target);
+    // startTimer();
   }
+  //   console.log(evt.target);
+  // }}
 
-  
+  // let timer;
+  // let seconds = 0;
+
+  // function updateTimer() {
+  //   seconds++;
+  //   document.getElementById("timer").textContent = seconds
+  //     .toString()
+  //     .padStart(3, "0");
+  // }
+  // function startTimer() {
+  //   timer = setInterval(updateTimer, 1000);
+  // }
+
+  // function stopTimer() {
+  //   clearInterval(timer);
+  // }
+
+  // function resetTimer() {
+  //   stopTimer();
+  //   seconds = 0;
+  //   document.getElementById("timer").textContent = "000";
+  // }
+
   // add eventlistener to start timer and begin game
 
   // document.getElementById('board').addEventListener('mousedown')
@@ -103,8 +156,23 @@ function startGame() {
   // window.getComputerStyle(e.target);
 }
 
-
-
+function rClickTile() {
+  let tile = this;
+  console.log(e.target.innerText);
+  if (flagEnabled === false) {
+    if (tile.innerText == "") {
+      tile.innerText = "🚩"; // set flag
+      this.flagEnabled = true;
+      // need to set variable for this state and use it to stop tile from being uncovered until flagEnabled === false
+    } else if (this.flagEnabled === true) {
+      if (tile.innertext == "🚩");
+      {
+        tile.innerText = "";
+        this.flagEnabled = false;
+      }
+    }
+  }
+}
 
 // randomly place mines on the board
 
@@ -199,15 +267,10 @@ function checkMine(r, c) {
 // rTile.addEventListener('contextmenu', rClickTile => {
 // rClickTile.preventDefault();
 
-// function rClickTile() {
-//     let tile = this;
-//     if (flagEnabled === false) {
-//         if (tile.innerText == "") {
-//             tile.innerText = '&#128681'
-//         } else if (flagEnabled === true) {
-//             if (tile.innertext = '&#128681'); {
-//                 tile.innerText = "";
-//     }
-//     }
-// }
-// }
+
+
+
+
+
+
+

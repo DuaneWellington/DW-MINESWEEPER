@@ -105,7 +105,7 @@ body {
 }
 
 #board div {
-  display: flex;
+  display: none;
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
@@ -118,6 +118,10 @@ body {
   border-top: 3px solid rgb(205, 203, 203);
   border-left: 3px solid rgb(205, 203, 203);
 
+#board div:hover {
+  background-color: darkgray;
+}
+
 
   /* text */
   font-size: 22px;
@@ -125,15 +129,28 @@ body {
   justify-content: center;
   align-items: center;
 }
-
-#mine {
-  display: flex;
+.mine {
+  display: none;
   margin:auto;
   background-color: darkgray;
 }
 
+.flag {
+  display: none;
+  margin: auto;
+  background-color: darkgrey;
+}
+
 .tile-clicked {
-  background-color: darkgray;
+  background-color: darkgreen;
+  display: none;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  margin: 0;
 }
 
 .clr1 {
@@ -213,13 +230,6 @@ body {
   padding: 0.3rem;
 }
 
-
-
-
-
-.cleared-tile {
-    background-color: darkgray;
-}
 
 
 
