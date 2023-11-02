@@ -28,6 +28,23 @@ function setMines() {
   //   });
 }
 
+// minesLocation.forEach((mineLocation) => {
+//   let cell = document.getElementById(mineLocation);
+//   if (cell) {
+//     cell.innerText = "";
+//     cell.classList.add("mine");
+//   }
+// });
+
+function revealMines() {
+  minesLocation.forEach((mineLocation) => {
+    let mineLoc = document.getElementById(mineLocation);
+    if (mineLoc) {
+      mineLoc.innerText = "💣";
+      mineLoc.style.backgroundColor = 'red';
+    }
+  });
+}
 //   }
 // }
 
@@ -40,11 +57,12 @@ function setMines() {
 function startGame() {
   //-- ICEBOX -> get minesDisplay to read as 3 digits at all times{
   document.getElementById("minesOnBoard").textContent = "00" + minesCount;
+  document.getElementById("smiley").addEventListener("click", smileyToggle);
 
   setMines();
 
   function youLose() {
-    if (e.target.classList == ".mine") {
+    if (e.target.classList == "mine") {
       console.log("Game Over! You LOSE!!");
       function youLose() {
         gameOver = true;
@@ -56,12 +74,17 @@ function startGame() {
     console.log("Game Over!");
   }
 
+  // set smiley face on toggle button
+
+  document.getElementById("smiley").innerText = "🙂"
+
   // auto-generate the board
   for (let r = 0; r < rows; r++) {
     let row = [];
     for (let c = 0; c < columns; c++) {
       let tile = document.createElement("div");
       tile.id = r.toString() + "-" + c.toString();
+      tile.addEventListener("click", lButton);
       document.getElementById("board").append(tile);
       row.push(tile);
     }
@@ -69,109 +92,128 @@ function startGame() {
   }
   console.log(board);
 
-  // place mines on the board
+  function smileyToggle() {
+    if (flagEnabled == false) {
+      document.getElementById("smiley").style.backgroundColor = "white";
+      document.getElementById("smiley").innerText = "🚩";
+      flagEnabled = true;
+    } else {
+      document.getElementById("smiley").style.backgroundColor = "rgb(187, 187, 187)";
+      document.getElementById("smiley").innerText = "🙂";
+      flagEnabled = false;
+    }
+    // console.log(smileyToggle);
+  }
+
+  //place mines on the board
 
   minesLocation.forEach((mineLocation) => {
-    const cell = document.getElementById(mineLocation);
+    let cell = document.getElementById(mineLocation);
     if (cell) {
       cell.innerText = "";
-      cell.classList.add(".mine");
+      cell.classList.add("mine");
     }
   });
 
-  // add event listener for smiley button to toggle flag
-  const smileyButton = document.getElementById('smiley');
-  smileyButton.addEventListener('click', smileyToggle)
 
-  function smileyToggle() {
-    if (flagEnabled) {
-      smileyButton.innerText = "🚩";
-      flagEnabled = true
-    } else {
-      smileyButton.innerText = "🙂"
-      flagEnabled = false
-    }
-  }
-
-  // document.addEventListener('click', smileyToggle);
-  // (ev) {
-  //   if (document.getElementById("smiley").innerText == "🙂") {
-  //     document.getElementById("smiley").innerText = "🚩";
-  //     flagEnabled = true;
-  //   }
-  //   if (document.getElementById("smiley").innerText == "🚩") {
-  //     document.getElementById("smiley").innerText = "🙂";
-  //     flagEnabled = false;
-  //   }
-  // }
-  //   document.getElementById('smiley')
-  //   return;
-  //   console.log(ev.target)
-  //   // if (ev.target == button#smiley) {
-  //
-  //   // } if (ev.target == button#smiley)
-  //   }
-
-  // add Event Listener to clear tiles using left mouse button
-  document.addEventListener("click", lButton);
   function lButton(e) {
-    let lTileClick = e.target;
-    
-    if (flagEnabled == true) {
-      return;
-    }
-    if (flagEnabled == false) {
-      lTileClick.classList = ".tile-clicked";
-      // document.getElementById('div[r][c]').append(e.target);
-      // startTimer();
-    }
     console.log(e.target);
+    let tile = this;
+    if (flagEnabled) {
+      if (tile.innerText == "") {
+        tile.innerText = "🚩";
+      }
+      if (tile.innerText == "🚩") {
+        tile.innerText = "";
+      }
+
+      // document.getElementById('div[r][c]').append(lTileClick);
+      // startTimer();
+    } else {
+      console.log(tile)
+      if (tile.innerText == "") {
+        this.classList.add("tile-clicked");
+      
+
+
+        // console.log(e.target);
+      }
+    }
   }
-  // quick solution to tile check issue?
+
+
+  // });
+
+  // // add event listener for smiley button to toggle flag
+  // const smileyButton = document.getElementById('smiley');
+  // smileyButton.addEventListener('click', smileyToggle)
+
+  // // document.addEventListener('click', smileyToggle);
+  // // (ev) {
+  // //   if (document.getElementById("smiley").innerText == "🙂") {
+  // //     document.getElementById("smiley").innerText = "🚩";
+  // //     flagEnabled = true;
+  // //   }
+  // //   if (document.getElementById("smiley").innerText == "🚩") {
+  // //     document.getElementById("smiley").innerText = "🙂";
+  // //     flagEnabled = false;
+  // //   }
+  // // }
+  // //   document.getElementById('smiley')
+  // //   return;
+  // //   console.log(ev.target)
+  // //   // if (ev.target == button#smiley) {
+  // //
+  // //   // } if (ev.target == button#smiley)
+  // //   }
+
+  // // add Event Listener to clear tiles using left mouse button
+
+  // // quick solution to tile check issue?
 
   // recursion flood event
-  function checkMine(r, c) {
-    if ((c < 0 || c >= columns || r, 0 || r >= rows)) {
-      return;
-    }
-    if (board[r][c].classList.contains("tile-clicked")) {
-      return;
-    }
-    board[r][c].classList.add(".tile-clicked");
+  // function checkMine(r, c) {
+  //   if ((c < 0 || c >= columns || r, 0 || r >= rows)) {
+  //     return;
+  //   }
+  //   if (board[r][c].classList.contains("tile-clicked")) {
+  //     return;
+  //   }
+  //   board[r][c].classList.add(".tile-clicked");
 
-    let minesFound = 0;
+  //   let minesFound = 0;
 
-    minesFound += checkTile(r - 1, c - 1); // top left
-    minesFound += checkTile(r - 1, c); // top
-    minesFound += checkTile(r - 1, c + 1); // top right
+  //   minesFound += checkTile(r - 1, c - 1); // top left
+  //   minesFound += checkTile(r - 1, c); // top
+  //   minesFound += checkTile(r - 1, c + 1); // top right
 
-    minesFound += checkTile(r, c - 1); // left
-    minesFound += checkTile(r, c + 1); // right
+  //   minesFound += checkTile(r, c - 1); // left
+  //   minesFound += checkTile(r, c + 1); // right
 
-    minesFound += checkTile(r + 1, c - 1); // bottom left
-    minesFound += checkTile(r + 1, c); //bottom
-    minesFound += checkTile(r + 1, c + 1); // bottom right
+  //   minesFound += checkTile(r + 1, c - 1); // bottom left
+  //   minesFound += checkTile(r + 1, c); //bottom
+  //   minesFound += checkTile(r + 1, c + 1); // bottom right
 
-    if (minesFound > 0) {
-      board[r][c].innerText = minesFound;
-      board[r][c].classList.add("clr" + minesFound.toString());
-    } else {
-      checkMine(r - 1, c - 1); // top left
-      checkMine(r - 1, c); // top
-      checkMine(r - 1, c + 1); // top right
+  //   if (minesFound > 0) {
+  //     board[r][c].innerText = minesFound;
+  //     board[r][c].classList.add("clr" + minesFound.toString());
+  //   } else {
+  //     checkMine(r - 1, c - 1); // top left
+  //     checkMine(r - 1, c); // top
+  //     checkMine(r - 1, c + 1); // top right
 
-      checkMine(r, c - 1); // left
-      checkMine(r, c + 1); // right
+  //     checkMine(r, c - 1); // left
+  //     checkMine(r, c + 1); // right
 
-      checkMine(r + 1, c - 1); // bottom left
-      checkMine(r + 1, c); // bottom
-      checkMine(r + 1, c - +1); // bottom right
-    }
+  //     checkMine(r + 1, c - 1); // bottom left
+  //     checkMine(r + 1, c); // bottom
+  //     checkMine(r + 1, c - +1); // bottom right
+  //   }
 
-    if (tilesClicked == rows * columns - minesCount) {
-      document.getElementById("minesOnBoard").innerText = "000";
-    }
-  }
+  //   if (tilesClicked == rows * columns - minesCount) {
+  //     document.getElementById("minesOnBoard").innerText = "000";
+  //   }
+  // }
   // }
   // document.addEventListener("contextmenu", rButton);
   // oncontextmenu = (rButton)
@@ -316,5 +358,4 @@ function startGame() {
 
   // rTile.addEventListener('contextmenu', rClickTile => {
   // rClickTile.preventDefault();
-  //}
 } //end of active game code

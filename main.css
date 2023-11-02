@@ -55,7 +55,7 @@ body {
 }
 
 #smiley {
-    background-color: rgb(187, 187, 187);
+  background-color: rgb(187, 187, 187);
   width: 45px;
   height: 45px;
   margin-right: 47.5px;
@@ -68,7 +68,6 @@ body {
   border-right: 3px solid rgb(93, 93, 93);
   border-top: 3px solid rgb(145, 144, 144);
 }
-
 
 #timer {
   font-size: 35px;
@@ -119,10 +118,9 @@ body {
   border-top: 3px solid rgb(205, 203, 203);
   border-left: 3px solid rgb(205, 203, 203);
 
-#board div:hover {
-  background-color: darkgray;
-}
-
+  #board div:hover {
+    background-color: rgb(187, 187, 187);
+  }
 
   /* text */
   font-size: 22px;
@@ -132,8 +130,8 @@ body {
 }
 .mine {
   display: none;
-  margin:auto;
-  background-color: darkgray;
+  margin: auto;
+  background-color: rgb(187, 187, 187);
 }
 
 .flag {
@@ -143,7 +141,7 @@ body {
 }
 
 .tile-clicked {
-  background-color: darkgreen;
+  background-color: rgb(52, 173, 213);
   display: none;
   flex-wrap: wrap;
   flex-direction: column;
