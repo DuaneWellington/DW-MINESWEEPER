@@ -85,21 +85,59 @@ function startGame() {
     if (flagEnabled == true) {
       return;
     } else if (flagEnabled == false) {
+      e.target.classList = '.tile-clicked'
       // document.getElementById('div[r][c]').append(e.target);
       // startTimer();
     }
     console.log(e.target);
-
+  }
     // quick solution to tile check issue?
 
-  if (e.target.classList == '.flag') {
-    return;
-  } else if (e.target.classList == '.mine') {
-    youLose();
-  }    
-   else {e.target.classList = '.tile-clicked';
   
+    // recursion flood event
+  function checkMine(r, c) {
+    if ((c < 0 || c >= columns || r, 0 || r >= rows)) {
+      return;
+    }
+    if (board[r][c].classList.contains("tile-clicked")) {
+      return;
+    }
+    board[r][c].classList.add(".tile-clicked");
+
+    let minesFound = 0;
+  
+    minesFound += checkTile(r - 1, c - 1); // top left
+    minesFound += checkTile(r - 1, c); // top
+    minesFound += checkTile(r - 1, c + 1); // top right
+  
+    minesFound += checkTile(r, c - 1); // left
+    minesFound += checkTile(r, c + 1); // right
+  
+    minesFound += checkTile(r + 1, c - 1); // bottom left
+    minesFound += checkTile(r + 1, c); //bottom
+    minesFound += checkTile(r + 1, c + 1); // bottom right
+  
+    if (minesFound > 0) {
+      board[r][c].innerText = minesFound;
+      board[r][c].classList.add("clr" + minesFound.toString());
+    } else {
+      checkMine(r - 1, c - 1); // top left
+      checkMine(r - 1, c); // top
+      checkMine(r - 1, c + 1); // top right
+
+      checkMine(r, c - 1); // left
+      checkMine(r, c + 1); // right
+
+      checkMine(r + 1, c - 1); // bottom left
+      checkMine(r + 1, c); // bottom
+      checkMine(r + 1, c - +1); // bottom right
+    }
+
+    if (tilesClicked == rows * columns - minesCount) {
+      document.getElementById("minesOnBoard").innerText = "000";
+    }
   }
+  // }
     // document.addEventListener("contextmenu", rButton);
     // oncontextmenu = (rButton)
     // function rButton(evt){
@@ -111,7 +149,7 @@ function startGame() {
 
     // document.getElementById('div[r][c]').append(e.target);
     // startTimer();
-  }
+  // }
   //   console.log(evt.target);
   // }}
 
@@ -154,72 +192,72 @@ function startGame() {
   // console.log(clickedDiv);
   // document.getElementById(e.target);
   // window.getComputerStyle(e.target);
-}
+ 
 
-function rClickTile() {
-  let tile = this;
-  console.log(e.target.innerText);
-  if (flagEnabled === false) {
-    if (tile.innerText == "") {
-      tile.innerText = "🚩"; // set flag
-      this.flagEnabled = true;
-      // need to set variable for this state and use it to stop tile from being uncovered until flagEnabled === false
-    } else if (this.flagEnabled === true) {
-      if (tile.innertext == "🚩");
-      {
-        tile.innerText = "";
-        this.flagEnabled = false;
-      }
-    }
-  }
-}
+// function rClickTile() {
+//   let tile = this;
+//   console.log(e.target.innerText);
+//   if (flagEnabled === false) {
+//     if (tile.innerText == "") {
+//       tile.innerText = "🚩"; // set flag
+//       this.flagEnabled = true;
+//       // need to set variable for this state and use it to stop tile from being uncovered until flagEnabled === false
+//     } else if (this.flagEnabled === true) {
+//       if (tile.innertext == "🚩");
+//       {
+//         tile.innerText = "";
+//         this.flagEnabled = false;
+//       }
+//     }
+//   }
+// }
 
 // randomly place mines on the board
 
-function placeMines(board, minesCount) {
-  let minesPlaced = 0;
-  while (minesPlaced < minesCount) {
-    const row = Math.floor(Mth.random() * rows);
-    const column = Math.floor(Math.random() * columns);
+// function placeMines(board, minesCount) {
+//   let minesPlaced = 0;
+//   while (minesPlaced < minesCount) {
+//     const row = Math.floor(Mth.random() * rows);
+//     const column = Math.floor(Math.random() * columns);
 
-    if (board[row][column] !== -1) {
-      board[row][column] = -1;
-      minesPlaced++;
-    }
-  }
-}
+//     if (board[row][column] !== -1) {
+//       board[row][column] = -1;
+//       minesPlaced++;
+//     }
+//   }
+// }
 
-function getMineCoordinates(board, x) {
-  const mineCoordinates = [];
-  for (let row = 0; row < rows; row++) {
-    for (let column = 0; column < columns; column++) {
-      if (board[row][column] === -1) {
-        mineCoordinates.push({ row, column });
-        if (mineCoordinates.length === x) {
-          return mineCoordinates;
-        }
-      }
-    }
-  }
-  return mineCoordinates;
-  console.log(mineCoordinates);
-}
+// function getMineCoordinates(board, x) {
+//   const mineCoordinates = [];
+//   for (let row = 0; row < rows; row++) {
+//     for (let column = 0; column < columns; column++) {
+//       if (board[row][column] === -1) {
+//         mineCoordinates.push({ row, column });
+//         if (mineCoordinates.length === x) {
+//           return mineCoordinates;
+//         }
+//       }
+//     }
+//   }
+//   return mineCoordinates;
+//   console.log(mineCoordinates);
+// }
 
-const mineField = document.getElementById("minesOnBoard");
-for (let i = 1; i <= minesCount; i++) {
-  let place = document.createElement("div");
-  place.className = "place";
-  // mineField.appendChild(place);
-  /* add eventListener for left-click to clear tiles and potentially activate flood event
-    - Start timer only when left click on a tile.
-    - Also add contextmenu with a preventDefault(); on the board for right click to toggle flag on/off. 
-    - When flag on == true for a tile, left click won't work on that tile. Should be a simple "if flag on then return, else perform function" 
+// const mineField = document.getElementById("minesOnBoard");
+// for (let i = 1; i <= minesCount; i++) {
+//   let place = document.createElement("div");
+//   place.className = "place";
+//   // mineField.appendChild(place);
+//   /* add eventListener for left-click to clear tiles and potentially activate flood event
+//     - Start timer only when left click on a tile.
+//     - Also add contextmenu with a preventDefault(); on the board for right click to toggle flag on/off. 
+//     - When flag on == true for a tile, left click won't work on that tile. Should be a simple "if flag on then return, else perform function" 
     
-    */
-  const child = document.createElement("div");
-  child.className = "child";
-  // mineField.appendChild(child);
-}
+//     */
+//   const child = document.createElement("div");
+//   child.className = "child";
+//   // mineField.appendChild(child);
+// }
 
 // At game start (left click on tile) begin timer
 
@@ -237,28 +275,7 @@ for (let i = 1; i <= minesCount; i++) {
 
 //
 // searching for mines nearby, and adding numbers to tiles
-function checkMine(r, c) {
-  if ((c < 0 || c >= columns || r, 0 || r >= rows)) {
-    return;
-  }
-  let minesFound = 0;
 
-  minesFound += checkTile(r - 1, c - 1); // top left
-  minesFound += checkTile(r - 1, c); // top
-  minesFound += checkTile(r - 1, c + 1); // top right
-
-  minesFound += checkTile(r, c - 1); // left
-  minesFound += checkTile(r, c + 1); // right
-
-  minesFound += checkTile(r + 1, c - 1); // bottom left
-  minesFound += checkTile(r + 1, c); //bottom
-  minesFound += checkTile(r + 1, c + 1); // bottom right
-
-  if (minesFound > 0) {
-    board[r][c].innerText = minesFound;
-    board[r][c].classList.add("clr" + minesFound.toString());
-  }
-}
 
 /* gameOver function (Smiley turns to exploded head; timer stops; console.log("You WIN!!") with minefield fully exposed showing all mines, or ("You LOSE!!" with minefield fully exposed and the triggered mine tile in red, etc) and option to restart!! */
 
@@ -266,11 +283,9 @@ function checkMine(r, c) {
 
 // rTile.addEventListener('contextmenu', rClickTile => {
 // rClickTile.preventDefault();
+//}
 
 
 
 
-
-
-
-
+} //end of active game code
