@@ -14,13 +14,9 @@ Enjoy hours of fun like I did as a child, with MINESWEEPER!! 😁
 
 ☐ Screenshot(s): 
 
-![Screen Shot 2023-11-03 at 9 24 58 AM](https://github.com/DuaneWellington/Project-1/assets/89868198/bd390135-42a1-4e77-a131-607581ca9a5a)
+![Screen Shot 2023-11-03 at 9 24 58 AM](https://github.com/DuaneWellington/Project-1/assets/89868198/bd390135-42a1-4e77-a131-607581ca9a5a)       ![Screen Shot 2023-11-03 at 9 25 54 AM](https://github.com/DuaneWellington/Project-1/assets/89868198/c8e143c5-2a1b-4ed6-8b06-d7f7b3fbc88a)
 
-![Screen Shot 2023-11-03 at 9 25 54 AM](https://github.com/DuaneWellington/Project-1/assets/89868198/c8e143c5-2a1b-4ed6-8b06-d7f7b3fbc88a)
-
-![Screen Shot 2023-11-03 at 9 26 57 AM](https://github.com/DuaneWellington/Project-1/assets/89868198/f75713df-cb09-41f7-8e6e-f986c4eed310)
-
-![Screen Shot 2023-11-03 at 9 28 32 AM](https://github.com/DuaneWellington/Project-1/assets/89868198/8a0b17b6-573c-4ed9-96f8-f55cedc74c7c)
+![Screen Shot 2023-11-03 at 9 26 57 AM](https://github.com/DuaneWellington/Project-1/assets/89868198/f75713df-cb09-41f7-8e6e-f986c4eed310)       ![Screen Shot 2023-11-03 at 9 28 32 AM](https://github.com/DuaneWellington/Project-1/assets/89868198/8a0b17b6-573c-4ed9-96f8-f55cedc74c7c)
 
 
 Note: if you edit your README.md on the github website editor, you can copy and paste image files directly to your markdown.
