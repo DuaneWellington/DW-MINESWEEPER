@@ -1,13 +1,4 @@
-# Project-1 Minesweeper
-
-Must implement "flood" feature
-
-
- The code for a working game that meets or exceeds the above technical requirements, built by you, and hosted on GitHub Pages (covered next week).
-
-A README.md file with these sections:
-
-☐ MINESWEEPER!! 
+# Project-1 MINESWEEPER!! 
 
 This is my attempt at recreating the feel of the original game, that I actually used to play as a kid! I remember not having any instructions on how to win, and just taking the time to figure it out on my own through trial and error, much like working on the actual code for this game!
 
@@ -21,8 +12,16 @@ The game is lost if the player removes a tile that has a mine under it!
 
 Enjoy hours of fun like I did as a child, with MINESWEEPER!! 😁
 
+☐ Screenshot(s): 
 
-☐ Screenshot(s): Images of your actual game.
+![Screen Shot 2023-11-03 at 9 24 58 AM](https://github.com/DuaneWellington/Project-1/assets/89868198/bd390135-42a1-4e77-a131-607581ca9a5a)
+
+![Screen Shot 2023-11-03 at 9 25 54 AM](https://github.com/DuaneWellington/Project-1/assets/89868198/c8e143c5-2a1b-4ed6-8b06-d7f7b3fbc88a)
+
+![Screen Shot 2023-11-03 at 9 26 57 AM](https://github.com/DuaneWellington/Project-1/assets/89868198/f75713df-cb09-41f7-8e6e-f986c4eed310)
+
+![Screen Shot 2023-11-03 at 9 28 32 AM](https://github.com/DuaneWellington/Project-1/assets/89868198/8a0b17b6-573c-4ed9-96f8-f55cedc74c7c)
+
 
 Note: if you edit your README.md on the github website editor, you can copy and paste image files directly to your markdown.
 
@@ -61,6 +60,6 @@ Plenty of upgrades planned for this game!
 
  Hope you enjoy! Feel free to let me know what you think. I take constructive criticism very well and I'm most interested in learning and improving, so any advice/thoughts/opinions are always welcome!
 
- D.
+ D. 😎
 
 
