@@ -117,17 +117,17 @@ body {
   border-right: 3px solid rgb(93, 93, 93);
   border-top: 3px solid rgb(205, 203, 203);
   border-left: 3px solid rgb(205, 203, 203);
-
-  #board div:hover {
-    background-color: rgb(187, 187, 187);
-  }
-
   /* text */
-  font-size: 22px;
+   font-size: 22px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; 
 }
+
+#board div:hover {
+  background-color: whitesmoke;
+}
+
 .mine {
   display: none;
   margin: auto;
