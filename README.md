@@ -7,24 +7,60 @@ Must implement "flood" feature
 
 A README.md file with these sections:
 
-☐ MINESWEEPER!!
+☐ MINESWEEPER!! 
 
-: A description of your game. Background info of the game is a nice touch.
+This is my attempt at recreating the feel of the original game, that I actually used to play as a kid! I remember not having any instructions on how to win, and just taking the time to figure it out on my own through trial and error, much like working on the actual code for this game!
+
+The default game is setup to hide 10 mines at random on a 9x9 grid. The player clicks on the tiles within the grid, exposing whatever is beneath the tile.
+
+The clicked tile will potentially reveal clues about how many mines are within the 8 tiles surrounding it. The player uses those clues to attempt to flag all of the mine locations on the board, while clearing the rest of the tiles from the board.
+
+The game is won when all mines have been correctly flagged, and all other tiles have been cleared from the board.
+
+The game is lost if the player removes a tile that has a mine under it!
+
+Enjoy hours of fun like I did as a child, with MINESWEEPER!! 😁
+
 
 ☐ Screenshot(s): Images of your actual game.
 
 Note: if you edit your README.md on the github website editor, you can copy and paste image files directly to your markdown.
 
-☐ Technologies Used: JavaScript, HTML, CSS!
+☐ Technologies Used: 
 
-☐ Getting Started: In this section include the link to your deployed game and any instructions you deem important.
+The game was built using JavaScript, HTML, and CSS! My build was a little different, in that I was attempting to auto generate the board using javascript and minimizing the need to manually type out the grid. I thought it would be simpler and more elegant, but it was a TRAGEDY for most of the in-class build time! EVERYTHING that could break, DID break! REPEATEDLY!! But I was loving the challenge, and I got to see small improvements in the game bit by bit. Even with all the headaches and challenges, it was a lot of fun to work on my own game project! It really stretched my mind and gave me a bit of confidence that I CAN grasp the concepts, implement them towards an end goal, learn about myself and my potential along the way, and hopefully make my instructors proud with my development!
 
-☐ Next Steps: Planned future enhancements (icebox items).
+☐ Getting Started: 
 
-Note: Don't underestimate the value of a well crafted README.md. The README.md introduces your project to prospective employers and forms their first impression of your work!
+Click the link below to have a stab at the game! Currently there is no restart button, so you'll have to reload using the browser to restart the game. I'll be working to add that smiley restart button as soon as I can!
 
-☐ Frequent commits (at least 1 every day) dating back to the very beginning of the project. Never delete you repo to "start over".
+https://duanewellington.github.io/Project-1/
 
-Commit messages should be in the present tense, e.g., "Style game board" instead of "Styled game board".
 
-Be sure to create the repo on your personal GitHub account and ensure that it is "public".
+☐ Next Steps: 
+
+Plenty of upgrades planned for this game!
+
+ - fix timer issue -> It needs to stop when the game is over. I feel like I've missed a couple of possible game conditions that should trigger gameOver. I'll take some time to find those flaws and get them corrected. It may be that I need to add an additional condition to look to see if tiles have been CLEARED through the flood event, AS WELL AS clicked through the eventlistener for the left button, AS WELL AS any tiles that have been flagged would be considered clicked/cleared.
+
+ - UI/UX needs tweaking. I have to make some adjustments to the styling for when the tiles are clicked/cleared. It should appear that the cover has been removed from those tiles to reveal what's underneath. Tinkering with CSS hopefully will solve this.
+
+ - The flag counter needs to stop when it hits '000', and no new flags will be able to be placed.
+
+ - I want the Smiley face to change based on the end of game condition (win or lose). A win will switch Smiley to 😎 or some other emoji that signals satisfaction and success. A loss will show a 🤯 smiley, as well as a 💥 at the tile that was clicked that triggered a mine. Also, a printout below the game board will congratulate a winner, admonish a loser, and direct the player on how to restart the game (click the Smiley button to restart)
+
+ - side menu that offers the player the chance to adjust the size of the board (rows and/or columns within a range); the number of mines to be placed on the board (also within a range)
+
+ - sound efects for clicks; triggering a mine (explosion); winning the game (cheers); maybe even some kind of sound effect for the flood event; perhaps the chance to have looping music and the ability to mute the music and/or the sound effects.
+
+ - perhaps some background options for behind the game board...
+ - end of game display for your session stats. # of games played; 
+ winning percentage; average, best, and worst times...
+
+ - if I'm REALLY ambitious, convert the game from the OG format, to an animated style... That's for a little further down my software engineering journey, but it would be neat if I could accomplish it!
+
+ Hope you enjoy! Feel free to let me know what you think. I take constructive criticism very well and I'm most interested in learning and improving, so any advice/thoughts/opinions are always welcome!
+
+ D.
+
+
