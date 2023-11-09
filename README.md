@@ -1,4 +1,4 @@
-# Project-1 MINESWEEPER!! 
+# MINESWEEPER!! 
 
 This is my attempt at recreating the feel of the original game, that I actually used to play as a kid! I remember not having any instructions on how to win, and just taking the time to figure it out on my own through trial and error, much like working on the actual code for this game!
 
