@@ -28,7 +28,7 @@ The game was built using JavaScript, HTML, and CSS! My build was a little differ
 
 Click the link below to have a stab at the game! Currently there is no restart button, so you'll have to reload using the browser to restart the game. I'll be working to add that smiley restart button as soon as I can!
 
-https://duanewellington.github.io/Project-1/
+https://duanewellington.github.io/DW-MINESWEEPER/
 
 
 ☐ Next Steps: 
